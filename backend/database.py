@@ -1,14 +1,14 @@
 from sqlalchemy import create_engine
-from sqlalchemy import sessionmaker
-from sqlalchemy.ext.declarative import declaravtive_base
+from sqlalchemy.orm import sessionmaker
+from sqlalchemy.ext.declarative import declarative_base
 
-SQL_ALCHEMY_URL = "postegresql://postegres:Sriharan@28@localhost:5432/delta_db"
+SQL_ALCHEMY_URL = "postgresql://postgres:Sriharan%4028@localhost:5432/delta_db"
 
 engine = create_engine(SQL_ALCHEMY_URL)
 
 SessionLocal = sessionmaker(autocommit = False, autoflush = False, bind = engine)
 
-Base = declaravtive_base()
+Base = declarative_base()
 
 def get_db():
     db = SessionLocal()
